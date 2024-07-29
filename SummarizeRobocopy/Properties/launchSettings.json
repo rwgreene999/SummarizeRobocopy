@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SummarizeRobocopy": {
+      "commandName": "Project",
+      "commandLineArgs": "c:\\OutlookBackups\\MailBackups*txt c:\\shared\\shared_TO*.txt c:\\rwg\\*.txt"
+    }
+  }
+}

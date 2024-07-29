@@ -1,0 +1,38 @@
+﻿<Window x:Class="SummarizeRobocopy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SummarizeRobocopy"
+        mc:Ignorable="d"
+        Title="Robocopy Summary" Height="592" Width="800"  FontWeight="Bold" FontSize="12">
+
+    <DockPanel>
+        <Rectangle Width="10" DockPanel.Dock="Left" />
+        
+        <Rectangle Width="10" Height="10"  DockPanel.Dock="Bottom" />
+
+        <Grid Name="grid1" MaxWidth="1300" DockPanel.Dock="Top">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#AA50a5de" Offset="0.006"/>
+                    <GradientStop Color="#AA3979a5" Offset="0.8"/>
+
+                    <!-- <GradientStop Color="#AA4FDECB" Offset="0.006"/>
+                <GradientStop Color="#AA44C1B0" Offset="0.8"/> --> 
+                
+                    <!-- <GradientStop Color="#AA009AFF" Offset="0.8"/> -->
+                </LinearGradientBrush>
+        </Grid.Background>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <TextBlock FontFamily="Courier New" x:Name="contentsLoaded" TextWrapping="Wrap" Margin="0,0,0,20">Loading.</TextBlock>
+
+        </ScrollViewer>
+
+
+        
+    </Grid>
+    </DockPanel>
+
+</Window>
