@@ -1,8 +1,9 @@
 {
   "profiles": {
     "SummarizeRobocopy": {
-      "commandName": "Project",
-      "commandLineArgs": "c:\\OutlookBackups\\MailBackups*txt c:\\shared\\shared_TO*.txt c:\\rwg\\*.txt"
+        "commandName": "Project",
+        "TestcommandLineArgs": "c:\\rwg\\RWG_TO_VULTURE.txt",
+        "commandLineArgs": "c:\\OutlookBackups\\MailBackups*txt c:\\shared\\shared_TO*.txt c:\\rwg\\*.txt"
     }
   }
 }

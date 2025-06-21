@@ -7,33 +7,43 @@ namespace SummarizeRobocopy
         public static List<string> GetSummary(string filename)
         {
             List<string> results = new List<string> { };
-            using (StreamReader sr = new StreamReader(filename))
+            try
             {
-                string line;
-                int cntLineBreaks = 0;
-                while ((line = sr.ReadLine()) != null)
+                using (StreamReader sr = new StreamReader(filename))
                 {
-                    if (line.StartsWith("------------------------------------"))
+                    results.Add("Robocopy Summary for " + filename);
+                    string line;
+                    int cntLineBreaks = 0;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        cntLineBreaks++;
-                    }
-                    if (cntLineBreaks >= 1 && cntLineBreaks < 3 && line.Length > 5)
-                    {
-                        results.Add(line);
-                    }
-                    if (cntLineBreaks >= 4)
-                    {
-                        results.Add(line);
+                        if (line.StartsWith("------------------------------------"))
+                        {
+                            cntLineBreaks++;
+                        }
+                        if (cntLineBreaks >= 1 && cntLineBreaks < 3 && line.Length > 5)
+                        {
+                            results.Add(line);
+                        }
+                        if (cntLineBreaks >= 4)
+                        {
+                            results.Add(line);
+                        }
                     }
                 }
+                if (results.Count > 1)
+                {
+                    results.Add("------------------------------------");
+                    results.Add("------------------------------------");
+                    results.Add("");
+                    results.Add("");
+                }
+
             }
-            if (results.Count > 1)
+            catch (Exception ex)
             {
-                results.Add("------------------------------------");
-                results.Add("------------------------------------");
-                results.Add("");
-                results.Add("");
-            }
+                results.Add($"error processing file {filename}");
+                results.Add(ex.Message);                
+            }            
             return results;
         }
     }
