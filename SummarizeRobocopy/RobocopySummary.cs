@@ -32,19 +32,25 @@ namespace SummarizeRobocopy
                 }
                 if (results.Count > 1)
                 {
-                    results.Add("------------------------------------");
-                    results.Add("------------------------------------");
-                    results.Add("");
-                    results.Add("");
+                    AddFinalizer(results);
                 }
 
             }
             catch (Exception ex)
             {
-                results.Add($"error processing file {filename}");
-                results.Add(ex.Message);                
+                results.Add($"ERROR processing file {filename}");
+                results.Add(ex.Message);
+                AddFinalizer(results);
             }            
             return results;
+        }
+
+        private static void AddFinalizer(List<string> results)
+        {
+            results.Add("------------------------------------");
+            results.Add("------------------------------------");
+            results.Add("");
+            results.Add("");
         }
     }
 }

@@ -29,7 +29,7 @@ namespace SummarizeRobocopy
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             string data = String.Join(Environment.NewLine, _files);
-            contentsLoaded.Text = "Processing files:" + Environment.NewLine + data + Environment.NewLine;
+            contentsLoaded.Text = "Processing files:" + Environment.NewLine + data + Environment.NewLine + Environment.NewLine + Environment.NewLine;
             TheWork();
 
         }
@@ -51,7 +51,7 @@ namespace SummarizeRobocopy
         private void FinalOutput(List<string> allFiles)
         {
             string finalize = Environment.NewLine + Environment.NewLine + "Files reviewed" + Environment.NewLine + String.Join(Environment.NewLine, allFiles) + Environment.NewLine + "Finished";
-            contentsLoaded.Inlines.Add(finalize);
+            contentsLoaded.AppendText(finalize);
         }
 
         private void AddResultsTowindow(List<Task<List<string>>> tasklist)
@@ -59,7 +59,7 @@ namespace SummarizeRobocopy
             foreach (Task<List<string>> t2 in tasklist)
             {
                 var ans = t2.Result;
-                contentsLoaded.Inlines.Add(String.Join(Environment.NewLine, t2.Result));
+                contentsLoaded.AppendText(String.Join(Environment.NewLine, t2.Result));
                 //contentsLoaded.Text = contentsLoaded.Text + String.Join(Environment.NewLine, t2.Result);
             }
         }

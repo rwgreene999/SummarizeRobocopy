@@ -26,9 +26,18 @@
         </Grid.Background>
 
         <ScrollViewer HorizontalScrollBarVisibility="Auto">
-            <TextBlock FontFamily="Courier New" x:Name="contentsLoaded" TextWrapping="Wrap" Margin="0,0,0,20">Loading.</TextBlock>
+                <TextBox
+    FontFamily="Courier New"
+    x:Name="contentsLoaded"
+    TextWrapping="Wrap"
+    Margin="0,0,0,20"
+    IsReadOnly="True"
+    BorderThickness="0"
+    Background="Transparent"
+    VerticalScrollBarVisibility="Auto"
+    HorizontalScrollBarVisibility="Auto" />
 
-        </ScrollViewer>
+            </ScrollViewer>
 
 
         
