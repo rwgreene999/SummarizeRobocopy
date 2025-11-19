@@ -1,0 +1,56 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, November 18, 2025 10:30:01 PM
+   Source : c:\rwg\
+     Dest = \\Owl\rwg$\
+
+    Files : *.*
+	    
+ Exc Dirs : _*
+	    
+  Options : *.* /TEE /S /E /DCOPY:DA /COPY:DAT /NP /R:2 /W:10 
+
+------------------------------------------------------------------------------
+
+	                  26	c:\rwg\
+	  *EXTRA File 		   28059	tcp (# Delete conflict 2024-06-07 wqgfysC #).h
+	    Newer     		    1757	RWG_TO_FALCON.bak
+	    Newer     		    1757	RWG_TO_FALCON.txt
+	    Newer     		  511479	RWG_TO_OWL.bak
+	    Newer     		       0	RWG_TO_OWL.txt
+	    Newer     		    1790	RWG_TO_VULTURE.bak
+	    Newer     		  489377	RWG_TO_VULTURE.txt
+	                  16	c:\rwg\AndroidApps\
+	                   3	c:\rwg\AndroidApps\Chordai_com.chordai\
+	                   2	c:\rwg\AndroidApps\Hook_com.rt.hook\
+	                   3	c:\rwg\AndroidApps\Pythagorea60_com.hil_hk.pythagorea60\
+	                   3	c:\rwg\AndroidApps\Pythagorea_com.hil_hk.pythagorea\
+	                  21	c:\rwg\Background\
+	                   0	c:\rwg\Data\
+	                  13	c:\rwg\Data\profile\
+	                   0	c:\rwg\Data\profile\bookmarkbackups\
+	                   1	c:\rwg\Data\profile\webapps\
+	                 150	c:\rwg\dostools\
+	                   9	c:\rwg\dostools\Games\
+	                   0	c:\rwg\dostools\Games\GOD\
+	                   7	c:\rwg\dostools\Games\GOD\GOD\
+	                   5	c:\rwg\dostools\Games\GOD\GOD\MakeCr\
+	                  40	c:\rwg\dostools\Games\HARRY\
+	                  12	c:\rwg\wren\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      5654         0      5654         0         0        77
+   Files :     51069        11     51058         0    100000       335
+   Bytes :  13.748 g   51.25 m  13.698 g         0         0  453.51 m
+   Times :   0:00:49   0:00:00                       0:00:00   0:00:48
+
+
+   Speed :           58,546,311 Bytes/sec.
+   Speed :            3,350.047 MegaBytes/min.
+   Ended : Tuesday, November 18, 2025 10:30:50 PM
+

@@ -1,0 +1,44 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, November 18, 2025 11:00:01 PM
+   Source : c:\rwg\
+     Dest : \\Vulture\rwg$\
+
+    Files : *.*
+	    
+ Exc Dirs : _*
+	    Everything-1.5a.*
+	    
+  Options : *.* /NFL /TEE /S /E /DCOPY:DA /COPY:DAT /NP /R:2 /W:10 
+
+------------------------------------------------------------------------------
+
+	                  26	c:\rwg\
+	                  16	c:\rwg\AndroidApps\
+	                   3	c:\rwg\AndroidApps\Chordai_com.chordai\
+	                   2	c:\rwg\AndroidApps\Hook_com.rt.hook\
+	                   3	c:\rwg\AndroidApps\Pythagorea60_com.hil_hk.pythagorea60\
+	                   3	c:\rwg\AndroidApps\Pythagorea_com.hil_hk.pythagorea\
+	                  21	c:\rwg\Background\
+	                   0	c:\rwg\Data\
+	                  13	c:\rwg\Data\profile\
+	                   0	c:\rwg\Data\profile\bookmarkbackups\
+	                   1	c:\rwg\Data\profile\webapps\
+	                  12	c:\rwg\wren\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      5654         0      5654         0        12        14
+   Files :     51069         4     51065         0         0        22
+   Bytes :  13.749 g    1.44 m  13.747 g         0         0    4.13 m
+   Times :   0:01:36   0:00:00                       0:00:00   0:01:36
+
+
+   Speed :           5,932,258 Bytes/sec.
+   Speed :             339.447 MegaBytes/min.
+   Ended : Tuesday, November 18, 2025 11:01:38 PM
+

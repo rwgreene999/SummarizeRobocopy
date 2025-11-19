@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace SummarizeRobocopy
 {
@@ -28,8 +31,11 @@ namespace SummarizeRobocopy
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            contentsLoaded.AppendPlainText("One");
+            contentsLoaded.AppendPlainText("Two");
+
             string data = String.Join(Environment.NewLine, _files);
-            contentsLoaded.Text = "Processing files:" + Environment.NewLine + data + Environment.NewLine + Environment.NewLine + Environment.NewLine;
+            contentsLoaded.AppendPlainText( $"Processing files:" + Environment.NewLine + data + Environment.NewLine + Environment.NewLine + Environment.NewLine );
             TheWork();
 
         }
@@ -51,7 +57,7 @@ namespace SummarizeRobocopy
         private void FinalOutput(List<string> allFiles)
         {
             string finalize = Environment.NewLine + Environment.NewLine + "Files reviewed" + Environment.NewLine + String.Join(Environment.NewLine, allFiles) + Environment.NewLine + "Finished";
-            contentsLoaded.AppendText(finalize);
+            contentsLoaded.AppendPlainText(finalize);
         }
 
         private void AddResultsTowindow(List<Task<List<string>>> tasklist)
@@ -59,10 +65,11 @@ namespace SummarizeRobocopy
             foreach (Task<List<string>> t2 in tasklist)
             {
                 var ans = t2.Result;
-                contentsLoaded.AppendText(String.Join(Environment.NewLine, t2.Result));
+                contentsLoaded.AppendPlainText(String.Join(Environment.NewLine, t2.Result));
                 //contentsLoaded.Text = contentsLoaded.Text + String.Join(Environment.NewLine, t2.Result);
             }
         }
+
 
         private static void BuildTaskList(List<string> allFiles, List<Task<List<string>>> tasklist)
         {
@@ -89,7 +96,7 @@ namespace SummarizeRobocopy
 
         private void btnGo_Click(object sender, RoutedEventArgs e)
         {
-            var currentText = contentsLoaded.Text;
+            // WIP What is this? var currentText = contentsLoaded.AppendText;
         }
     }
 }

@@ -1,0 +1,44 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, November 18, 2025 11:30:01 PM
+2025/11/18 23:30:15 ERROR 53 (0x00000035) Getting File System Type of Destination \\falcon\rwg$\
+The network path was not found.
+
+   Source : c:\rwg\
+     Dest = \\falcon\rwg$\
+
+    Files : *.*
+	    
+ Exc Dirs : _*
+	    
+  Options : *.* /NFL /TEE /S /E /DCOPY:DA /COPY:DAT /NP /R:2 /W:10 
+
+------------------------------------------------------------------------------
+
+2025/11/18 23:30:15 ERROR 53 (0x00000035) Accessing Destination Directory \\falcon\rwg$\
+The network path was not found.
+Waiting 10 seconds... Retrying...
+2025/11/18 23:30:25 ERROR 53 (0x00000035) Accessing Destination Directory \\falcon\rwg$\
+The network path was not found.
+Waiting 10 seconds... Retrying...
+2025/11/18 23:30:35 ERROR 53 (0x00000035) Accessing Destination Directory \\falcon\rwg$\
+The network path was not found.
+
+ERROR: RETRY LIMIT EXCEEDED.
+
+2025/11/18 23:30:35 ERROR 53 (0x00000035) Creating Destination Directory \\falcon\rwg$\
+The network path was not found.
+Waiting 10 seconds... Retrying...
+2025/11/18 23:30:56 ERROR 53 (0x00000035) Creating Destination Directory \\falcon\rwg$\
+The network path was not found.
+Waiting 10 seconds... Retrying...
+2025/11/18 23:31:06 ERROR 53 (0x00000035) Creating Destination Directory \\falcon\rwg$\
+The network path was not found.
+
+ERROR: RETRY LIMIT EXCEEDED.
+
+2025/11/18 23:31:06 ERROR 53 (0x00000035) Creating Destination Directory \\falcon\rwg$\
+The network path was not found.

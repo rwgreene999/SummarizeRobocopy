@@ -25,23 +25,18 @@
                 </LinearGradientBrush>
         </Grid.Background>
 
-        <ScrollViewer HorizontalScrollBarVisibility="Auto">
-                <TextBox
-    FontFamily="Courier New"
+            <RichTextBox
     x:Name="contentsLoaded"
-    TextWrapping="Wrap"
-    Margin="0,0,0,20"
     IsReadOnly="True"
     BorderThickness="0"
     Background="Transparent"
     VerticalScrollBarVisibility="Auto"
-    HorizontalScrollBarVisibility="Auto" />
+    HorizontalScrollBarVisibility="Auto"
+    HorizontalAlignment="Stretch"
+    Margin="0,0,0,20" />
 
-            </ScrollViewer>
 
-
-        
-    </Grid>
+        </Grid>
     </DockPanel>
 
 </Window>
