@@ -31,9 +31,6 @@ namespace SummarizeRobocopy
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            contentsLoaded.AppendPlainText("One");
-            contentsLoaded.AppendPlainText("Two");
-
             string data = String.Join(Environment.NewLine, _files);
             contentsLoaded.AppendPlainText( $"Processing files:" + Environment.NewLine + data + Environment.NewLine + Environment.NewLine + Environment.NewLine );
             TheWork();
