@@ -7,33 +7,44 @@
         mc:Ignorable="d"
         Title="Robocopy Summary" Height="592" Width="800"  FontWeight="Bold" FontSize="12">
 
+
+
+
     <DockPanel>
         <Rectangle Width="10" DockPanel.Dock="Left" />
-        
+
         <Rectangle Width="10" Height="10"  DockPanel.Dock="Bottom" />
 
         <Grid Name="grid1" MaxWidth="1300" DockPanel.Dock="Top">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#AA50a5de" Offset="0.006"/>
                     <GradientStop Color="#AA3979a5" Offset="0.8"/>
 
                     <!-- <GradientStop Color="#AA4FDECB" Offset="0.006"/>
-                <GradientStop Color="#AA44C1B0" Offset="0.8"/> --> 
-                
+                <GradientStop Color="#AA44C1B0" Offset="0.8"/> -->
+
                     <!-- <GradientStop Color="#AA009AFF" Offset="0.8"/> -->
                 </LinearGradientBrush>
-        </Grid.Background>
+            </Grid.Background>
 
-            <RichTextBox
-    x:Name="contentsLoaded"
-    IsReadOnly="True"
-    BorderThickness="0"
-    Background="Transparent"
-    VerticalScrollBarVisibility="Auto"
-    HorizontalScrollBarVisibility="Auto"
-    HorizontalAlignment="Stretch"
-    Margin="0,0,0,20" />
+
+            <FlowDocumentReader
+                x:Name="contentsLoaded"
+                Margin="10,42,10,10"
+                FontSize="12"
+                IsFindEnabled="True"
+                ViewingMode="Scroll"            
+                >
+                <FlowDocument 
+                    
+                    PagePadding="10" Background="Transparent"
+                    FontFamily="Lucida Console" FontSize="12" >
+                    <Paragraph>
+                        <Run Text="Load a Robocopy log file to see the summary."/>
+                    </Paragraph>
+                </FlowDocument>
+            </FlowDocumentReader>
 
 
         </Grid>
