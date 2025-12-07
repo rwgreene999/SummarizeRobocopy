@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace SummarizeRobocopy
 {
@@ -97,16 +99,43 @@ namespace SummarizeRobocopy
                 if (!string.IsNullOrEmpty(lines[i]) &&
                     lines[i].IndexOf("error", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    run.Background = System.Windows.Media.Brushes.Red;
-                    run.Foreground = System.Windows.Media.Brushes.White;
+                    SetRunToErrorColors(run);
                 }
+                else if ((lines[i].StartsWith("   Files : ") ||
+                              lines[i].StartsWith("    Dirs : ") ||
+                              lines[i].StartsWith("   Bytes :"))
+                              && !lines[i].Contains("         0         0 "))
+                {
+                    SetRunToErrorColors(run);
+                }
+                else if (lines[i].StartsWith("  Started :"))
+                {
+                    string dtString = lines[i].Substring(12);
+                    DateTime tm = DateTime.Parse(dtString);
 
+                    TimeSpan diff = DateTime.Now - tm;
+                    if (diff.TotalHours > 36)
+                    {
+                        SetRunToErrorColors(run);
+                        run.Background = System.Windows.Media.Brushes.Red;
+                        run.Foreground = System.Windows.Media.Brushes.White;
+                    }
+                }
+              
                 para.Inlines.Add(run);
+
                 if (i < lines.Length - 1)
                     para.Inlines.Add(new LineBreak());
+
             }
 
             doc.Blocks.Add(para);
+        }
+
+        private static void SetRunToErrorColors(Run run)
+        {
+            run.Background = System.Windows.Media.Brushes.Red;
+            run.Foreground = System.Windows.Media.Brushes.White;
         }
 
         private void btnGo_Click(object sender, RoutedEventArgs e)

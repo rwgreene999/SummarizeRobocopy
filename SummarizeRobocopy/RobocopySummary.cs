@@ -2,6 +2,8 @@
 
 namespace SummarizeRobocopy
 {
+    // rwg note: 
+    // leaving this here a while in case I want to revert back to using thsi text 
     class GetRobocopySummary
     {
         public static List<string> GetSummary(string filename)
