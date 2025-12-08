@@ -4,6 +4,8 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.Globalization;
+using MyExtensions;     
 
 namespace SummarizeRobocopy
 {
@@ -111,14 +113,19 @@ namespace SummarizeRobocopy
                 else if (lines[i].StartsWith("  Started :"))
                 {
                     string dtString = lines[i].Substring(12);
-                    DateTime tm = DateTime.Parse(dtString);
+                    DateTime? tm = dtString.TryParseFlexible();
 
-                    TimeSpan diff = DateTime.Now - tm;
-                    if (diff.TotalHours > 36)
+                    if (tm == null)
                     {
-                        SetRunToErrorColors(run);
-                        run.Background = System.Windows.Media.Brushes.Red;
-                        run.Foreground = System.Windows.Media.Brushes.White;
+                        SetRunToWarningColors(run);
+                    }
+                    else
+                    {
+                        double hours = (DateTime.Now - tm.Value).TotalHours;
+                        if (hours > 36.0)
+                        {
+                            SetRunToErrorColors(run);
+                        }
                     }
                 }
               
@@ -126,7 +133,6 @@ namespace SummarizeRobocopy
 
                 if (i < lines.Length - 1)
                     para.Inlines.Add(new LineBreak());
-
             }
 
             doc.Blocks.Add(para);
@@ -138,9 +144,13 @@ namespace SummarizeRobocopy
             run.Foreground = System.Windows.Media.Brushes.White;
         }
 
-        private void btnGo_Click(object sender, RoutedEventArgs e)
+
+        private static void SetRunToWarningColors(Run run)
         {
-            // unused - left for future work
+            run.Background = System.Windows.Media.Brushes.PaleGoldenrod;
+            run.Foreground = System.Windows.Media.Brushes.White;
         }
     }
+
+
 }
