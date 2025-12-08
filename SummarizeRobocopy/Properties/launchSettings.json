@@ -2,11 +2,11 @@
   "profiles": {
     "SummarizeRobocopy": {
         "commandName": "Project",
-        "commandLineArgsText": ".\\TestData\\RWG_*.txt",
-        "commandLineArgs": "c:\\rwg\\rwg_*txt c:\\shared\\shared_*txt c:\\projects\\project_to*.txt c:\\politics\\politics_to*.txt c:\\outlookbackups\\MailBackups*.txt",
+        "commandLineArgs": ".\\TestData\\RWG_*.txt",
+        "commandLineArgsJunk": "c:\\rwg\\rwg_*txt c:\\shared\\shared_*txt c:\\projects\\project_to*.txt c:\\politics\\politics_to*.txt c:\\outlookbackups\\MailBackups*.txt",
         "workingDirectory": "$(ProjectDir)",
-        "TestcommandLineArgsTest": ".\\TestData\\RWG_*.txt",
-        "TestcommandLineArgs": "c:\\rwg\\rwg_*txt c:\\shared\\shared_*txt c:\\projects\\project_to*.txt c:\\politics\\politics_to*.txt c:\\outlookbackups\\MailBackups*.txt"
+        "TestcommandLineArgs": ".\\TestData\\RWG_*.txt",
+        "TestcommandLineArgsJunk": "c:\\rwg\\rwg_*txt c:\\shared\\shared_*txt c:\\projects\\project_to*.txt c:\\politics\\politics_to*.txt c:\\outlookbackups\\MailBackups*.txt"
     }
   }
 }

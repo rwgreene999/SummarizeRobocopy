@@ -11,6 +11,7 @@ namespace SummarizeRobocopy
             List<string> results = new List<string> { };
             try
             {
+                Thread.Sleep(5000);
                 using (StreamReader sr = new StreamReader(filename))
                 {
                     results.Add("Robocopy Summary for " + filename);
