@@ -5,7 +5,8 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Globalization;
-using MyExtensions;     
+using MyExtensions;
+using System.Threading.Tasks;
 
 namespace SummarizeRobocopy
 {
@@ -29,21 +30,23 @@ namespace SummarizeRobocopy
             _findManager = new FlowFindManager(this, contentsLoaded);
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             string data = String.Join(Environment.NewLine, _files);
             AppendText($"Processing files:{Environment.NewLine}{data}{Environment.NewLine}{Environment.NewLine}{Environment.NewLine}");
-            TheWork();
+            await TheWorkAsync();
         }
 
-        private void TheWork()
+        private async Task TheWorkAsync()
         {
+            
             List<string> allFiles = BuildFileList();
 
-            List<Task<List<string>>> tasklist = new List<Task<List<string>>>();
-            BuildTaskList(allFiles, tasklist);
+            // Create tasks that run on the threadpool via Task.Run
+            var tasklist = BuildTaskList(allFiles);
 
-            Task.WaitAll(tasklist.ToArray());
+            // Await all tasks (non-blocking UI thread)
+            await Task.WhenAll(tasklist);
 
             AddResultsTowindow(tasklist);
 
@@ -60,18 +63,22 @@ namespace SummarizeRobocopy
         {
             foreach (Task<List<string>> t2 in tasklist)
             {
+                // tasks have completed due to await Task.WhenAll above
                 AppendText(String.Join(Environment.NewLine, t2.Result));
             }
         }
 
-        private static void BuildTaskList(List<string> allFiles, List<Task<List<string>>> tasklist)
+        // Step 2: use Task.Run so the work runs on the threadpool immediately.
+        private static List<Task<List<string>>> BuildTaskList(List<string> allFiles)
         {
+            var tasklist = new List<Task<List<string>>>();
             foreach (var file in allFiles)
             {
-                var task = new Task<List<string>>(() => { return GetRobocopySummary.GetSummary(file); });
+                // prefer Task.Run over new Task(...).Start()
+                var task = Task.Run(() => GetRobocopySummary.GetSummary(file));
                 tasklist.Add(task);
-                task.Start();
             }
+            return tasklist;
         }
 
         private List<string> BuildFileList()
@@ -151,6 +158,4 @@ namespace SummarizeRobocopy
             run.Foreground = System.Windows.Media.Brushes.White;
         }
     }
-
-
 }
